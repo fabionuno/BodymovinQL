@@ -9,9 +9,8 @@ Installation
 Requires Mac OS X 10.10 or later (but tested on 10.12).
 
 * Download the current version of the plugin from the "[Releases]" section
-* Run the Terminal app (found in Applications → Utilities).
-* Copy the `Bodymovin.qlgenerator` file to the folder `~/Library/QuickLook` (Create the folder, if it does not exist)
-* You may need to reboot to enable it (or run `qlmanage -r` in your Terminal).
+* Unzip it, and put the `Bodymovin.qlgenerator` into `~/Library/QuickLook` (Create the folder, if it does not exist)
+* You may need to reboot to enable it or run `qlmanage -r` in your Terminal app (found in Applications → Utilities).
 
 
 Using the plugin

@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC015E951E66529000B13C74 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BC015E941E66529000B13C74 /* GenerateThumbnailForURL.m */; };
+		BC015E971E66529000B13C74 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BC015E961E66529000B13C74 /* GeneratePreviewForURL.m */; };
+		BC015E991E66529000B13C74 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BC015E981E66529000B13C74 /* main.c */; };
+		BC015EA21E6659CD00B13C74 /* BodymovinPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = BC015EA11E6659CD00B13C74 /* BodymovinPreview.m */; };
+		BC015EA41E665BE100B13C74 /* bodymovin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = BC015EA31E665BE100B13C74 /* bodymovin.min.js */; };
+		BC015EA61E66667200B13C74 /* BodymovinPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = BC015EA51E66667200B13C74 /* BodymovinPreview.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BC015E911E66529000B13C74 /* Bodymovin.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bodymovin.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC015E941E66529000B13C74 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		BC015E961E66529000B13C74 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
+		BC015E981E66529000B13C74 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		BC015E9A1E66529000B13C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC015EA11E6659CD00B13C74 /* BodymovinPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BodymovinPreview.m; sourceTree = "<group>"; };
+		BC015EA31E665BE100B13C74 /* bodymovin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bodymovin.min.js; sourceTree = "<group>"; };
+		BC015EA51E66667200B13C74 /* BodymovinPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodymovinPreview.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC015E8D1E66529000B13C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC015E871E66528F00B13C74 = {
+			isa = PBXGroup;
+			children = (
+				BC015E931E66529000B13C74 /* BodymovinQL */,
+				BC015E921E66529000B13C74 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC015E921E66529000B13C74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC015E911E66529000B13C74 /* Bodymovin.qlgenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC015E931E66529000B13C74 /* BodymovinQL */ = {
+			isa = PBXGroup;
+			children = (
+				BC015EA31E665BE100B13C74 /* bodymovin.min.js */,
+				BC015E941E66529000B13C74 /* GenerateThumbnailForURL.m */,
+				BC015E961E66529000B13C74 /* GeneratePreviewForURL.m */,
+				BC015E981E66529000B13C74 /* main.c */,
+				BC015E9A1E66529000B13C74 /* Info.plist */,
+				BC015EA51E66667200B13C74 /* BodymovinPreview.h */,
+				BC015EA11E6659CD00B13C74 /* BodymovinPreview.m */,
+			);
+			path = BodymovinQL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BC015E8E1E66529000B13C74 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC015EA61E66667200B13C74 /* BodymovinPreview.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BC015E901E66529000B13C74 /* Bodymovin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC015E9D1E66529000B13C74 /* Build configuration list for PBXNativeTarget "Bodymovin" */;
+			buildPhases = (
+				BC015E8C1E66529000B13C74 /* Sources */,
+				BC015E8D1E66529000B13C74 /* Frameworks */,
+				BC015E8E1E66529000B13C74 /* Headers */,
+				BC015E8F1E66529000B13C74 /* Resources */,
+				BC015EA01E6652AF00B13C74 /* Install */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bodymovin;
+			productName = BodymovinQL;
+			productReference = BC015E911E66529000B13C74 /* Bodymovin.qlgenerator */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC015E881E66528F00B13C74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Tacapetech;
+				TargetAttributes = {
+					BC015E901E66529000B13C74 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BC015E8B1E66528F00B13C74 /* Build configuration list for PBXProject "BodymovinQL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BC015E871E66528F00B13C74;
+			productRefGroup = BC015E921E66529000B13C74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC015E901E66529000B13C74 /* Bodymovin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC015E8F1E66529000B13C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC015EA41E665BE100B13C74 /* bodymovin.min.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC015EA01E6652AF00B13C74 /* Install */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Install;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PRODUCT=\"${PRODUCT_NAME}.qlgenerator\"\nQL_PATH=~/Library/QuickLook/\n\nrm -rf \"$QL_PATH/$PRODUCT\"\ntest -d \"$QL_PATH\" || mkdir -p \"$QL_PATH\" && cp -R \"$BUILT_PRODUCTS_DIR/$PRODUCT\" \"$QL_PATH\"\nqlmanage -r\n\necho \"$PRODUCT installed in $QL_PATH\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC015E8C1E66529000B13C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC015E951E66529000B13C74 /* GenerateThumbnailForURL.m in Sources */,
+				BC015E971E66529000B13C74 /* GeneratePreviewForURL.m in Sources */,
+				BC015EA21E6659CD00B13C74 /* BodymovinPreview.m in Sources */,
+				BC015E991E66529000B13C74 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BC015E9B1E66529000B13C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BC015E9C1E66529000B13C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BC015E9E1E66529000B13C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BodymovinQL/Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.tacapetech.BodymovinQL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Debug;
+		};
+		BC015E9F1E66529000B13C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BodymovinQL/Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.tacapetech.BodymovinQL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC015E8B1E66528F00B13C74 /* Build configuration list for PBXProject "BodymovinQL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC015E9B1E66529000B13C74 /* Debug */,
+				BC015E9C1E66529000B13C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC015E9D1E66529000B13C74 /* Build configuration list for PBXNativeTarget "Bodymovin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC015E9E1E66529000B13C74 /* Debug */,
+				BC015E9F1E66529000B13C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC015E881E66528F00B13C74 /* Project object */;
+}
