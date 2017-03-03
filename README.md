@@ -29,5 +29,4 @@ Uninstall
 
 
 ## Roadmap
-- Image Assets
 - Add support for change the player renderer (default is SVG)
