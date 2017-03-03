@@ -7,12 +7,21 @@
 
 #include "BodymovinPreview.h"
 
+@interface BodymovinPreview ()
+
+-(NSString*) mimeTypeForFileAtPath:(NSString *) path;
+
+@end
+
+
 @implementation BodymovinPreview
 
-- (instancetype)initWithAnimation:(NSString *)json {
-    _animation = json;
-    if ([BodymovinPreview isValidJson:json]) {
-        self = [super init];
+- (instancetype)initWithAnimation:(NSString *)json usingURL:(NSURL *)URL {
+    if ((self = [super init])) {
+
+        _animation = json;
+        _fileURL = [URL URLByDeletingLastPathComponent];
+
         return self;
     }
     
@@ -20,10 +29,10 @@
 }
 
 
-+(BOOL)isValidJson:(NSString *)json {
+-(BOOL)isAnimation {
 
     NSError* errorInfo;
-    NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [_animation dataUsingEncoding:NSUTF8StringEncoding];
 
     NSDictionary *parsedJSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&errorInfo];
    
@@ -32,6 +41,22 @@
     
     NSString *width = [parsedJSON objectForKey:@"w"];
     NSString *height = [parsedJSON objectForKey:@"h"];
+    
+    //if is a bodymovin json, get assets file
+    NSMutableArray *assetsArray = [parsedJSON mutableArrayValueForKey:@"assets"];
+
+    if (assetsArray)
+    {
+        _assets = [[NSMutableArray alloc] init];
+        for (NSDictionary *item in assetsArray)
+        {
+            if (![item objectForKey:@"layers"])
+            {
+                NSString *path = [item objectForKey:@"u"];
+                [_assets addObject:[path stringByAppendingString:[item objectForKey:@"p"]]];
+            }
+        }
+    }
     
     return (width != nil && height!=nil);
 }
@@ -53,18 +78,54 @@
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *jsFile = [bundle URLForResource:@"bodymovin.min" withExtension:@"js"];
     NSData *jsData = [NSData dataWithContentsOfURL:jsFile];
+
+
+    // Properties
+    NSMutableDictionary* properties = [NSMutableDictionary dictionaryWithCapacity:3];
+    [properties setObject:@"UTF-8" forKey:(__bridge NSString*)kQLPreviewPropertyTextEncodingNameKey];
+    [properties setObject:@"text/html" forKey:(__bridge NSString*)kQLPreviewPropertyMIMETypeKey];
     
-    NSDictionary *props = @{
-            (__bridge NSString *)kQLPreviewPropertyTextEncodingNameKey : @"UTF-8",
-            (__bridge NSString *)kQLPreviewPropertyMIMETypeKey : @"text/html",
-            (__bridge NSString *)kQLPreviewPropertyAttachmentsKey : @{
-                    @"bodymovin.min.js" : @{
-                            (__bridge NSString *)kQLPreviewPropertyMIMETypeKey : @"text/javascript",
-                            (__bridge NSString *)kQLPreviewPropertyAttachmentDataKey: jsData,
-                            },
-                    },
-            };
+    NSUInteger attachmentsCount = 1;
     
-    return props;
+    //check if animation has assets to attach in HTML
+    if (_assets != nil)
+        attachmentsCount += [_assets count];
+
+    
+    // Add the attachments.
+    NSMutableDictionary* attachments = [NSMutableDictionary dictionaryWithCapacity:attachmentsCount];
+    NSDictionary* bodymovin = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"text/javascript", (NSString *)kQLPreviewPropertyMIMETypeKey, jsData, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
+    [attachments setObject:bodymovin forKey:@"bodymovin.min.js"];
+
+    //append animation assets
+    if (attachmentsCount > 1) {
+        for (NSString *assetsFile in _assets) {
+            attach(_fileURL, attachments, [self mimeTypeForFileAtPath:assetsFile], assetsFile);
+        }
+    }
+    
+    [properties setObject:attachments forKey:(NSString*)kQLPreviewPropertyAttachmentsKey];
+    
+    NSLog(@"dict %@", properties);
+    return properties;
+}
+
+-(NSString*) mimeTypeForFileAtPath:(NSString *) path {
+    
+    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[path pathExtension], NULL);
+    CFStringRef mimeType = UTTypeCopyPreferredTagWithClass (UTI, kUTTagClassMIMEType);
+    CFRelease(UTI);
+    if (!mimeType) {
+        return @"application/octet-stream";
+    }
+    return (__bridge NSString *)mimeType;
+}
+
+static void attach(NSURL *attachURL, NSMutableDictionary* attachments, NSString* type, NSString* fileName)
+{
+    NSLog(@"att apth = %@",[attachURL URLByAppendingPathComponent:fileName]);
+    NSData *data = [NSData dataWithContentsOfURL:[attachURL URLByAppendingPathComponent:fileName]];
+    NSDictionary* attachment = [NSMutableDictionary dictionaryWithObjectsAndKeys:type, (NSString *)kQLPreviewPropertyMIMETypeKey, data, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
+    [attachments setObject:attachment forKey:fileName];
 }
 @end

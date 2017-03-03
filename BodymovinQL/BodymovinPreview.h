@@ -10,10 +10,12 @@
 @interface BodymovinPreview : NSObject {
     
     NSString* _animation;
+    NSURL* _fileURL;
+    NSMutableArray* _assets;
 }
 
-+ (BOOL)isValidJson:(NSString *)json;
-- (instancetype) initWithAnimation: (NSString *)json;
+- (BOOL)isAnimation;
+- (instancetype) initWithAnimation: (NSString *)json usingURL:(NSURL *)URL;
 - (NSString *) generateHTML;
 - (NSDictionary *)previewProperties;
 
