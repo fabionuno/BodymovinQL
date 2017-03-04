@@ -19,8 +19,6 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
             return noErr;
         }
         
-        NSLog(@"NUNO path %@", [[fileURL absoluteString] stringByDeletingLastPathComponent]);
-        
         //load JSON file
         NSError *loaderError;
         NSString *jsonFile = [[NSString alloc] initWithContentsOfURL:fileURL

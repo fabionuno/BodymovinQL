@@ -106,7 +106,6 @@
     
     [properties setObject:attachments forKey:(NSString*)kQLPreviewPropertyAttachmentsKey];
     
-    NSLog(@"dict %@", properties);
     return properties;
 }
 
@@ -123,7 +122,6 @@
 
 static void attach(NSURL *attachURL, NSMutableDictionary* attachments, NSString* type, NSString* fileName)
 {
-    NSLog(@"att apth = %@",[attachURL URLByAppendingPathComponent:fileName]);
     NSData *data = [NSData dataWithContentsOfURL:[attachURL URLByAppendingPathComponent:fileName]];
     NSDictionary* attachment = [NSMutableDictionary dictionaryWithObjectsAndKeys:type, (NSString *)kQLPreviewPropertyMIMETypeKey, data, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
     [attachments setObject:attachment forKey:fileName];
