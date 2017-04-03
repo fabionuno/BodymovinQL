@@ -26,7 +26,3 @@ Uninstall
         sudo rm -rf "~/Library/QuickLook/Bodymovin.qlgenerator"
 
 * Press Enter.
-
-
-## Roadmap
-- Add support for change the player renderer (default is SVG)
