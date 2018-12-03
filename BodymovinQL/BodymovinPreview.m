@@ -92,7 +92,15 @@
     //append animation assets
     if (attachmentsCount > 1) {
         for (NSString *assetsFile in _assets) {
-            attach(_fileURL, attachments, [self mimeTypeForFileAtPath:assetsFile], assetsFile);
+            if ([assetsFile hasPrefix:@"data:"]) {
+                NSRange semicolonRange = [assetsFile rangeOfString:@";"];
+                NSString *type = [assetsFile substringWithRange:NSMakeRange(5, semicolonRange.location-5)];
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:assetsFile]];
+                NSDictionary* attachment = [NSMutableDictionary dictionaryWithObjectsAndKeys:type, (NSString *)kQLPreviewPropertyMIMETypeKey, data, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
+                [attachments setObject:attachment forKey:assetsFile];
+            } else {
+                attach(_fileURL, attachments, [self mimeTypeForFileAtPath:assetsFile], assetsFile);
+            }
         }
     }
     
