@@ -92,15 +92,10 @@
     //append animation assets
     if (attachmentsCount > 1) {
         for (NSString *assetsFile in _assets) {
-            if ([assetsFile hasPrefix:@"data:"]) {
-                NSRange semicolonRange = [assetsFile rangeOfString:@";"];
-                NSString *type = [assetsFile substringWithRange:NSMakeRange(5, semicolonRange.location-5)];
-                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:assetsFile]];
-                NSDictionary* attachment = [NSMutableDictionary dictionaryWithObjectsAndKeys:type, (NSString *)kQLPreviewPropertyMIMETypeKey, data, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
-                [attachments setObject:attachment forKey:assetsFile];
-            } else {
-                attach(_fileURL, attachments, [self mimeTypeForFileAtPath:assetsFile], assetsFile);
+            if ([assetsFile hasPrefix:@"data:"] && attachData(assetsFile, attachments)) {
+                continue;
             }
+            attach(_fileURL, attachments, [self mimeTypeForFileAtPath:assetsFile], assetsFile);
         }
     }
     
@@ -125,5 +120,17 @@ static void attach(NSURL *attachURL, NSMutableDictionary* attachments, NSString*
     NSData *data = [NSData dataWithContentsOfURL:[attachURL URLByAppendingPathComponent:fileName]];
     NSDictionary* attachment = [NSMutableDictionary dictionaryWithObjectsAndKeys:type, (NSString *)kQLPreviewPropertyMIMETypeKey, data, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
     [attachments setObject:attachment forKey:fileName];
+}
+
+static BOOL attachData(NSString *dataURL, NSMutableDictionary* attachments)
+{
+    NSRange semicolonRange = [dataURL rangeOfString:@";"];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:dataURL]];
+    if (semicolonRange.location == NSNotFound || data == nil)
+        return NO;
+    NSString *type = [dataURL substringWithRange:NSMakeRange(5, semicolonRange.location-5)];
+    NSDictionary* attachment = [NSMutableDictionary dictionaryWithObjectsAndKeys:type, (NSString *)kQLPreviewPropertyMIMETypeKey, data, (NSString *)kQLPreviewPropertyAttachmentDataKey, nil];
+    [attachments setObject:attachment forKey:dataURL];
+    return YES;
 }
 @end
